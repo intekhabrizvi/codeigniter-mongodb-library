@@ -1,7 +1,7 @@
 CIMongo - MongoDB Library for Codeigniter 3 - Supports PHP7+, Codeigniter 3+, mongodb-1.5.x extension 
 =======
 
-This library help you to use perform MongoDB based queries just like active record in CodeIgniter.
+This library help you to perform MongoDB based queries just like active record in CodeIgniter.
 
 This library support
 * Write Concern and Journal
