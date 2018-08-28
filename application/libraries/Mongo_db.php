@@ -55,7 +55,7 @@ Class Mongo_db{
 	function __construct($param)
 	{
 
-		if ( ! class_exists('MongoDB'))
+		if ( ! class_exists('MongoDB\Driver\Manager'))
 		{
 			show_error("The MongoDB PECL extension has not been installed or enabled", 500);
 		}
