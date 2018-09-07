@@ -1381,6 +1381,7 @@ Class Mongo_db{
 		try
 		{
 			$write = $this->db->executeBulkWrite($this->database.".".$collection, $bulk, $writeConcern);
+			$this->_clear();
 			return $write;
 		}
 		// Check if the write concern could not be fulfilled
@@ -1448,6 +1449,7 @@ Class Mongo_db{
 		try
 		{
 			$write = $this->db->executeBulkWrite($this->database.".".$collection, $bulk, $writeConcern);
+			$this->_clear();
 			return $write;
 		}
 		// Check if the write concern could not be fulfilled
@@ -1506,6 +1508,7 @@ Class Mongo_db{
 		try
 		{
 			$write = $this->db->executeBulkWrite($this->database.".".$collection, $bulk, $writeConcern);
+			$this->_clear();
 			return $write;
 		}
 		// Check if the write concern could not be fulfilled
@@ -1564,6 +1567,7 @@ Class Mongo_db{
 		try
 		{
 			$write = $this->db->executeBulkWrite($this->database.".".$collection, $bulk, $writeConcern);
+			$this->_clear();
 			return $write;
 		}
 		// Check if the write concern could not be fulfilled
