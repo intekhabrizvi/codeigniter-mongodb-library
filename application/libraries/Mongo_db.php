@@ -1439,7 +1439,7 @@ Class Mongo_db{
 			show_error("Nothing to update in Mongo collection or update is not an array", 500);	
 		}
 
-		$options = array_merge(array('multiple' => TRUE), $options);
+		$options = array_merge(array('multi' => TRUE), $options);
 
 		$bulk = new MongoDB\Driver\BulkWrite();
 		$bulk->update($this->wheres, $this->updates, $options);
