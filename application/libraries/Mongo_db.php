@@ -1501,7 +1501,7 @@ Class Mongo_db{
 
 		$options = array('limit'=>true);
 		$bulk = new MongoDB\Driver\BulkWrite();
-		$bulk->delete($this->wheres, $this->updates, $options);
+		$bulk->delete($this->wheres, $options);
 			
 		$writeConcern = new MongoDB\Driver\WriteConcern(MongoDB\Driver\WriteConcern::MAJORITY, 1000);
 
@@ -1560,7 +1560,7 @@ Class Mongo_db{
 
 		$options = array('limit'=>false);
 		$bulk = new MongoDB\Driver\BulkWrite();
-		$bulk->delete($this->wheres, $this->updates, $options);
+		$bulk->delete($this->wheres, $options);
 			
 		$writeConcern = new MongoDB\Driver\WriteConcern(MongoDB\Driver\WriteConcern::MAJORITY, 1000);
 
