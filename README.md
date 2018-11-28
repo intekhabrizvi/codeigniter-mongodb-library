@@ -1,5 +1,4 @@
-=======
-CIMongo - MongoDB Library for Codeigniter 3 - Supports PHP7+, Codeigniter 3+, mognodb-1.5.x extension 
+CIMongo - MongoDB Library for Codeigniter 3 - Supports PHP 7+, Codeigniter 3+, mognodb-1.5.x extension 
 =======
 
 This library help you to use perform MongoDB based queries just like active record in CodeIgniter.
