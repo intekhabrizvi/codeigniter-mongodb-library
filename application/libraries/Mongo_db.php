@@ -208,6 +208,21 @@ Class Mongo_db{
 		}
 	}
 
+    /**
+     * Sets the return as to object or array
+     * This is useful if library is used in another library to avoid issue if config values are different
+     *
+     * @param string $value
+     */
+    public function set_return_as($value)
+    {
+        if(!in_array($value, ['array', 'object']))
+        {
+            show_error("Invalid Return As Type");
+        }
+        $this->return_as = $value;
+    }
+
 	/**
 	* --------------------------------------------------------------------------------
 	* Connect to MongoDB Database
