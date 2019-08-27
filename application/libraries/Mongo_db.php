@@ -1827,9 +1827,9 @@ Class Mongo_db{
 				$keys[$col] = 1;
 			}
 		}
-        $command = array();
-        $command['createIndexes'] = $collection;
-        $command['indexes'] = array($keys);
+		$command = array();
+		$command['createIndexes'] = $collection;
+		$command['indexes'] = array($keys);
 
 		return $this->command($command);
 	}
