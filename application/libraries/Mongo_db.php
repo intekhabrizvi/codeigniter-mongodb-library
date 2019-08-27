@@ -183,7 +183,7 @@ Class Mongo_db{
 			if(empty($this->config[$this->activate]['read_preference']) || 
 				!isset($this->config[$this->activate]['read_preference']))
 			{
-				$this->read_preference = 'RP_PRIMARY';
+				$this->read_preference = "primary";
 			}
 			else
 			{
@@ -193,7 +193,7 @@ Class Mongo_db{
 			if(empty($this->config[$this->activate]['read_concern']) || 
 				!isset($this->config[$this->activate]['read_concern']))
 			{
-				$this->read_concern = 'MAJORITY';
+				$this->read_concern = "majority";
 			}
 			else
 			{
