@@ -1042,6 +1042,20 @@ Class Mongo_db{
 		}
 	}
 
+    /**
+     * --------------------------------------------------------------------------------
+     * Count All Results
+     * --------------------------------------------------------------------------------
+     *
+     * Alias to count method for compatibility with CI Query Builder
+     *
+     * @usage : $this->mongo_db->count('foo');
+     */
+	public function count_all_results($collection = "")
+    {
+        return $this->count($collection);
+    }
+
 	/**
 	* --------------------------------------------------------------------------------
 	* Set
