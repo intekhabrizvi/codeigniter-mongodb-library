@@ -1841,9 +1841,9 @@ Class Mongo_db{
 				$keys[$col] = 1;
 			}
 		}
-		$commond = array();
-		$commond['createIndexes'] = $collection;
-		$commond['indexes'] = array($keys);
+		$command = array();
+		$command['createIndexes'] = $collection;
+		$command['indexes'] = array($keys);
 
 		return $this->command($command);
 	}
@@ -1871,9 +1871,9 @@ Class Mongo_db{
 			show_error("Index could not be removed from MongoDB Collection because no index name were specified", 500);
 		}
 
-		$commond = array();
-		$commond['dropIndexes'] = $collection;
-		$commond['index'] = $name;
+		$command = array();
+		$command['dropIndexes'] = $collection;
+		$command['index'] = $name;
 
 		return $this->command($command);
 	}
@@ -1893,8 +1893,8 @@ Class Mongo_db{
 		{
 			show_error("No Mongo collection specified to list all indexes from", 500);
 		}
-		$commond = array();
-		$commond['listIndexes'] = $collection;
+		$command = array();
+		$command['listIndexes'] = $collection;
 
 		return $this->command($command);
 	}	
@@ -1928,8 +1928,8 @@ Class Mongo_db{
 			show_error('Failed to drop MongoDB database because name is empty', 500);
 		}
 
-		$commond = array();
-		$commond['dropDatabase'] = 1;
+		$command = array();
+		$command['dropDatabase'] = 1;
 
 		return $this->command($command);
 	}
@@ -1949,8 +1949,8 @@ Class Mongo_db{
 			show_error('Failed to drop MongoDB collection because collection name is empty', 500);
 		}
 
-		$commond = array();
-		$commond['drop'] = $col;
+		$command = array();
+		$command['drop'] = $col;
 
 		return $this->command($command);
 	}
