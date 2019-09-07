@@ -193,7 +193,7 @@ Class Mongo_db{
 			if(empty($this->config[$this->activate]['read_concern']) || 
 				!isset($this->config[$this->activate]['read_concern']))
 			{
-				$this->read_concern = MongoDB\Driver\ReadConcern::MAJORITY;;
+				$this->read_concern = MongoDB\Driver\ReadConcern::MAJORITY;
 			}
 			else
 			{
