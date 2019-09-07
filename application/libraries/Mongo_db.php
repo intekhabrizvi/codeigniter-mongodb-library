@@ -815,7 +815,7 @@ Class Mongo_db{
 			$value .= "$";
 		}
 		$regex = "/$value/$flags";
-		$this->wheres[$field] = new MongoRegex($regex);
+		$this->wheres[$field] = new \MongoDB\BSON\Regex($regex);
 		return ($this);
 	}
 
@@ -1330,10 +1330,13 @@ Class Mongo_db{
 	* --------------------------------------------------------------------------------
 	*
 	* Finds the distinct values for a specified field across a single collection
-	*
+	* 
+	* @param $count
+	* If you set the $count to true, the result will be count and you get the sum of count
 	* @usage: $this->mongo_db->distinct('collection', 'field');
+	* @usage: $this->mongo_db->distinct('collection', 'field', true); <- Return the sum of count
 	*/
-	public function distinct($collection = "", $field="")
+	public function distinct($collection = "", $field="", $count = false)
 	{
 		if (empty($collection))
 		{
@@ -1347,7 +1350,9 @@ Class Mongo_db{
 
 		try
 		{
-			$documents = $this->db->{$collection}->distinct($field, $this->wheres);
+			$database = (new MongoDB\Client)->{$collection};
+			$documents = $database->command(["distinct" => $collection, "key"=> $field]);
+
 			$this->_clear();
 			if ($this->return_as == 'object')
 			{
@@ -1355,7 +1360,13 @@ Class Mongo_db{
 			}
 			else
 			{
-				return $documents;
+				$result = $documents->toArray()[0]["values"];
+				if($count == true)
+				{
+					$result = count($result);
+				}
+				
+				return $result;
 			}
 		}
 		catch (MongoCursorException $e)
@@ -1754,7 +1765,7 @@ Class Mongo_db{
 	* @param  string : Collection name, array $query The command query
 	* @usage : $this->mongo_db->command($collection, array('geoNear'=>'buildings', 'near'=>array(53.228482, -0.547847), 'num' => 10, 'nearSphere'=>true));
 	* @access public
-        * @return object or array
+    * @return object or array
 	*/
 	
     public function command($command = array())
