@@ -245,6 +245,16 @@ Class Mongo_db{
 			{
 				$options = array('username'=>$this->username, 'password'=>$this->password);
 			}
+			
+			if(isset($this->config[$this->activate]['ssl']))
+			{
+				$options['ssl'] = $this->config[$this->activate]['ssl'];
+			}
+
+			if(isset($this->config[$this->activate]['authSource']))
+			{
+				$options['authSource'] = $this->config[$this->activate]['authSource'];
+			}
 
 			$this->connect = $this->db = new MongoDB\Driver\Manager($dns, $options);
 			
