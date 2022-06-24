@@ -1881,7 +1881,7 @@ Class Mongo_db{
 			show_error("No Mongo collection specified to remove index from", 500);
 		}
 
-		if (empty($keys))
+		if (empty($name))
 		{
 			show_error("Index could not be removed from MongoDB Collection because no index name were specified", 500);
 		}
