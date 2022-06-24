@@ -1517,9 +1517,9 @@ Class Mongo_db{
 	* //! Delete
 	* --------------------------------------------------------------------------------
 	*
-	* delete document from the passed collection based upon certain criteria
+	* delete one document from the passed collection based upon certain criteria
 	*
-	* @usage : $this->mongo_db->delete('foo');
+	* @usage : $this->mongo_db->where(array('field'=>'value'))->delete_all('foo');
 	*/
 	public function delete($collection = "")
 	{
@@ -1578,7 +1578,7 @@ Class Mongo_db{
 	*
 	* Delete all documents from the passed collection based upon certain criteria
 	*
-	* @usage : $this->mongo_db->delete_all('foo', $data = array());
+	* @usage : $this->mongo_db->where(array('field'=>'value'))->delete_all('foo');
 	*/
 	public function delete_all($collection = "")
 	{
