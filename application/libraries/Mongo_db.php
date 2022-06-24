@@ -830,7 +830,7 @@ Class Mongo_db{
 			$value .= "$";
 		}
 		$regex = "/$value/$flags";
-		$this->wheres[$field] = new MongoRegex($regex);
+		$this->wheres[$field] = new MongoDB\BSON\Regex($regex);
 		return ($this);
 	}
 
